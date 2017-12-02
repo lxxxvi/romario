@@ -1,0 +1,3 @@
+project=romario
+test=minitest
+template=erb
