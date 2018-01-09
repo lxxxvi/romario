@@ -1,6 +1,6 @@
--- DROP TABLE IF EXISTS countries;
+-- DROP TABLE IF EXISTS teams;
 
--- CREATE TABLE countries (
+-- CREATE TABLE teams (
 --   id                  serial        PRIMARY KEY,
 --   fifa_country_code   VARCHAR(3)    UNIQUE NOT NULL,
 --   name                VARCHAR(100)  UNIQUE NOT NULL,
@@ -8,13 +8,13 @@
 --   group_order         INTEGER       NOT NULL
 -- );
 
--- ALTER TABLE countries ADD CONSTRAINT country_group_id_fk FOREIGN KEY (group_id) REFERENCES groups (id);
+-- ALTER TABLE teams ADD CONSTRAINT team_group_id_fk FOREIGN KEY (group_id) REFERENCES groups (id);
 
-INSERT INTO countries (group_id, fifa_country_code, name, group_order)
+INSERT INTO teams (group_id, fifa_country_code, name, group_order)
 SELECT groups.id                      AS group_id
-     , countries.fifa_country_code    AS fifa_country_code
-     , countries.name                 AS name
-     , countries.group_order          AS group_order
+     , teams.fifa_country_code    AS fifa_country_code
+     , teams.name                 AS name
+     , teams.group_order          AS group_order
   FROM (
           SELECT 'A' group_name, 'RUS' fifa_country_code, 'Russia'          AS name, 1 AS group_order
     UNION SELECT 'A' group_name, 'KSA' fifa_country_code, 'Saudi Arabia'    AS name, 2 AS group_order
@@ -48,8 +48,8 @@ SELECT groups.id                      AS group_id
     UNION SELECT 'H' group_name, 'SEN' fifa_country_code, 'Senegal'         AS name, 2 AS group_order
     UNION SELECT 'H' group_name, 'COL' fifa_country_code, 'Colombia'        AS name, 3 AS group_order
     UNION SELECT 'H' group_name, 'JPN' fifa_country_code, 'Japan'           AS name, 4 AS group_order
-) countries
-INNER JOIN groups           ON groups.name = countries.group_name
+) teams
+INNER JOIN groups           ON groups.name = teams.group_name
 ON CONFLICT (fifa_country_code) DO
 UPDATE
    SET group_id       = EXCLUDED.group_id

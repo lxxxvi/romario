@@ -1,0 +1,10 @@
+%h1 Groups
+
+- if groups.any?
+  #groups
+    - groups.each do |group|
+      .group
+        %h2= "Group #{group.name}"
+
+- else
+  No groups here
