@@ -19,8 +19,8 @@ describe Web::Views::Groups::Index do
   end
 
   describe 'when there are groups' do
-    let(:group_x) { Group.new(letter: 'X') }
-    let(:group_y) { Group.new(letter: 'Y') }
+    let(:group_x) { Group.new(name: 'X') }
+    let(:group_y) { Group.new(name: 'Y') }
 
     let(:exposures) { Hash[groups: [group_x, group_y]] }
 

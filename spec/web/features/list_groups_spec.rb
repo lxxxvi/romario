@@ -5,8 +5,8 @@ describe 'list groups' do
   before do
     repository.clear
 
-    repository.create(letter: 'X')
-    repository.create(letter: 'Y')
+    repository.create(name: 'X')
+    repository.create(name: 'Y')
   end
 
   it 'displays all groups on the page' do

@@ -8,7 +8,7 @@ describe Web::Controllers::Groups::Index do
   before do
     repository.clear
 
-    @group = repository.create(letter: 'L')
+    @group = repository.create(name: 'L')
   end
 
   it 'is successful' do
