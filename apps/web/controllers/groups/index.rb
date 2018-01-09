@@ -5,7 +5,7 @@ module Web::Controllers::Groups
     expose :groups
 
     def call(params)
-      @groups = GroupRepository.new.all
+      @groups = GroupRepository.new.ordered_by_name
     end
   end
 end
