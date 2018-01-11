@@ -13,6 +13,9 @@ Hanami::Model.migration do
       column :points_right_team_score         , Integer, null: true
       column :points_overall_outcome          , Integer, null: true
       column :points_goal_difference          , Integer, null: true
+
+      column :created_at                      , DateTime    , null: false
+      column :updated_at                      , DateTime    , null: false
     end
 
     alter_table :predictions do
