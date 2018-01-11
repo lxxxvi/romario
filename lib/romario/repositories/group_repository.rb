@@ -4,7 +4,7 @@ class GroupRepository < Hanami::Repository
   end
 
   def ordered_by_name
-    groups.order(:name).call
+    groups.order(:name).call.collection
   end
 
   def by_name(name)
