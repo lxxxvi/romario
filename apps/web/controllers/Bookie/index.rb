@@ -2,7 +2,10 @@ module Web::Controllers::Bookie
   class Index
     include Web::Action
 
-    def call(params)
+    expose :matches
+
+    def call(_params)
+      @matches = match_repository.with_predictions_of_user(current_user)
     end
 
     private
@@ -12,7 +15,11 @@ module Web::Controllers::Bookie
     end
 
     def user_repository
-      @repo = UserRepository.new
+      @user_repo ||= UserRepository.new
+    end
+
+    def match_repository
+      @match_repository ||= MatchRepository.new
     end
   end
 end

@@ -9,6 +9,7 @@ class MatchRepository < Hanami::Repository
     matches
       .left_join(predictions, match_id: :id)
       .where('predictions.user_id = ?', user.id)
+      .order(:kickoff_at)
       .call
       .collection
   end
