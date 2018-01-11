@@ -10,3 +10,7 @@ end
 
 task default: :test
 task spec: :test
+
+task seeds: :environment do
+  load 'db/seeds.rb'
+end

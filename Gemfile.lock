@@ -3,6 +3,7 @@ GEM
   specs:
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    byebug (9.1.0)
     capybara (2.16.1)
       addressable
       mini_mime (>= 0.1.3)
@@ -17,7 +18,7 @@ GEM
     dry-container (0.6.0)
       concurrent-ruby (~> 1.0)
       dry-configurable (~> 0.1, >= 0.1.3)
-    dry-core (0.4.1)
+    dry-core (0.4.2)
       concurrent-ruby (~> 1.0)
     dry-equalizer (0.2.0)
     dry-initializer (1.4.1)
@@ -46,6 +47,9 @@ GEM
       dry-equalizer (~> 0.2)
       dry-logic (~> 0.4, >= 0.4.0)
       dry-types (~> 0.11.0)
+    haml (5.0.4)
+      temple (>= 0.8.0)
+      tilt
     hanami (1.1.0)
       bundler
       concurrent-ruby (~> 1.0)
@@ -137,6 +141,7 @@ GEM
     sequel (4.49.0)
     shotgun (0.9.2)
       rack (>= 1.0)
+    temple (0.8.0)
     tilt (2.0.8)
     transproc (1.0.2)
     url_mount (0.2.1)
@@ -148,8 +153,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  byebug
   capybara
   dotenv (~> 2.0)
+  haml
   hanami (~> 1.1)
   hanami-model (~> 1.1)
   minitest

@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rake'
 gem 'hanami',       '~> 1.1'
 gem 'hanami-model', '~> 1.1'
+gem 'haml'
 
 gem 'pg'
 
@@ -13,6 +14,7 @@ group :development do
 end
 
 group :test, :development do
+  gem 'byebug'
   gem 'dotenv', '~> 2.0'
 end
 
