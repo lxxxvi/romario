@@ -2,6 +2,7 @@
 ENV['HANAMI_ENV'] ||= 'test'
 
 require_relative '../config/environment'
-require 'minitest/autorun'
+
+`HANAMI_ENV=test bundle exec rake db seeds`
 
 Hanami.boot

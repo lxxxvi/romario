@@ -6,3 +6,4 @@
 
 root to: 'home#index'
 get '/groups', to: 'groups#index'
+get '/bookie', to: 'bookie#index'
