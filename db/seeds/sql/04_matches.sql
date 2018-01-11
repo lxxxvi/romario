@@ -45,7 +45,7 @@ SELECT venue.id                   AS venue_id
              , TIMESTAMP WITH TIME ZONE '2018-06-15 12:00:00+00'    AS kickoff_at
 
   UNION SELECT 'caravan.revives.jigging'::text                      AS venue
-             , 'MOR'::text                                          AS left_team_code
+             , 'MAR'::text                                          AS left_team_code
              , 'IRN'::text                                          AS right_team_code
              ,  TIMESTAMP WITH TIME ZONE '2018-06-15 15:00:00+00'   AS kickoff_at
 
@@ -121,7 +121,7 @@ SELECT venue.id                   AS venue_id
 
   UNION SELECT 'sweetly.detained.venues'::text                      AS venue
              , 'POR'::text                                          AS left_team_code
-             , 'MOR'::text                                          AS right_team_code
+             , 'MAR'::text                                          AS right_team_code
              ,  TIMESTAMP WITH TIME ZONE '2018-06-20 12:00:00+00'   AS kickoff_at
 
   UNION SELECT 'tempting.prude.natively'::text                      AS venue
@@ -211,7 +211,7 @@ SELECT venue.id                   AS venue_id
 
   UNION SELECT 'slick.texted.star'::text                            AS venue
              , 'ESP'::text                                          AS left_team_code
-             , 'MOR'::text                                          AS right_team_code
+             , 'MAR'::text                                          AS right_team_code
              ,  TIMESTAMP WITH TIME ZONE '2018-06-25 18:00:00+00'   AS kickoff_at
 
   UNION SELECT 'sweetly.detained.venues'::text                      AS venue
