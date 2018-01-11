@@ -11,8 +11,11 @@ describe MatchRepository do
     # TODO: create test data
   end
 
-  it 'fetches all matches with predictions' do
+  it 'fetches all matches with predictions and teams' do
     user_predictions = subject.with_predictions_of_user(user)
-    expect(user_predictions.count).to eq 44
+    expect(user_predictions.count).to eq 47
+    prediction = user_predictions.first
+    expect(prediction.left_team).to be
+    expect(prediction.right_team).to be
   end
 end

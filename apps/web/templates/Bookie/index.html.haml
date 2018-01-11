@@ -1,4 +1,8 @@
-%h1 Bookie's
-- matches.each do |match|
+-matches.each do |match|
   .match
-    %h3="#{match.kickoff_at}"
+    .header
+      =image_for_country_code(match.left_team.fifa_country_code)
+      %h3=match.left_team.fifa_country_code
+      %h3="#{match.left_team_score} : #{match.right_team_score}"
+      %h3=match.right_team.fifa_country_code
+      =image_for_country_code(match.right_team.fifa_country_code)

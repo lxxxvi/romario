@@ -3,10 +3,12 @@
 class MatchRepository < Hanami::Repository
   associations do
     has_many :predictions
+    belongs_to :team, as: :left_team, foreign_key: :left_team_id
+    belongs_to :team, as: :right_team, foreign_key: :right_team_id
   end
 
   def with_predictions_of_user(user)
-    matches
+    aggregate(:left_team, :right_team)
       .left_join(predictions, match_id: :id)
       .where('predictions.user_id = ?', user.id)
       .order(:kickoff_at)
