@@ -4,6 +4,10 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title World Cup 2018
     = favicon
+    = stylesheet 'application'
   %body
-    #big-title World Cup 2018
-    = yield
+    .main
+      .content
+        = yield
+      .bottom-nav
+        = render partial: 'shared/navigation'
