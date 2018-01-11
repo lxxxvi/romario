@@ -4,9 +4,13 @@ class TeamRepository < Hanami::Repository
   end
 
   def find_or_initialize_by_fifa_country_code(fifa_country_code)
-    found = teams.where(fifa_country_code: fifa_country_code).limit(1).one
+    found = by_fifa_country_code(fifa_country_code)
 
     found || Team.new(fifa_country_code: fifa_country_code)
+  end
+
+  def by_fifa_country_code(fifa_country_code)
+    teams.where(fifa_country_code: fifa_country_code).limit(1).one
   end
 
   def create_or_update!(team)
