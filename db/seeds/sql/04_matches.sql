@@ -54,7 +54,7 @@ SELECT venue.id                   AS venue_id
              , 'ESP'::text                                          AS right_team_code
              ,  TIMESTAMP WITH TIME ZONE '2018-06-15 18:00:00+00'   AS kickoff_at
 
-  UNION SELECT 'ecover.news.deeply'::text                           AS venue
+  UNION SELECT 'recover.news.deeply'::text                          AS venue
              , 'FRA'::text                                          AS left_team_code
              , 'AUS'::text                                          AS right_team_code
              ,  TIMESTAMP WITH TIME ZONE '2018-06-16 10:00:00+00'   AS kickoff_at
