@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
-gem 'rake'
-gem 'hanami',       '~> 1.1'
-gem 'hanami-model', '~> 1.1'
 gem 'haml'
+gem 'hanami', '~> 1.1'
+gem 'hanami-model', '~> 1.1'
+gem 'rake'
+gem 'sass'
 
 gem 'pg'
 
@@ -19,8 +22,8 @@ group :test, :development do
 end
 
 group :test do
-  gem 'rspec'
   gem 'capybara'
+  gem 'rspec'
 end
 
 group :production do

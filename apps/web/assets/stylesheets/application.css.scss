@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css?family=Acme|Ubuntu+Condensed");
+@import "./navigation";
+@import "./team";
+
+html,
+body,
+ul,
+ol {
+  margin: 0;
+}
+
+body {
+  font-family: "Acme", sans-serif;
+  // font-family: "Ubuntu Condensed", sans-serif;
+  font-size: 24px;
+  width: 100vw;
+  height: 100vh;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+
+  .content {
+    max-height: calc(100vh - 50px);
+    overflow: scroll;
+  }
+
+  .bottom-nav {
+    height: 50px;
+  }
+}
