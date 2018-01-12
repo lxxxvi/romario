@@ -14,9 +14,7 @@ class MatchRepository < Hanami::Repository
       .collection
   end
 
-  def by_phase_and_country_codes(phase, left_team_country_code, right_team_country_code)
-    left_team  = team_repository.by_fifa_country_code(left_team_country_code)
-    right_team = team_repository.by_fifa_country_code(right_team_country_code)
+  def by_phase_and_teams(phase, left_team, right_team)
     matches
       .where(phase: phase, left_team_id: left_team.id, right_team_id: right_team.id).call.first
   end

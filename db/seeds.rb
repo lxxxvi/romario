@@ -23,7 +23,12 @@ end
 
 unless Hanami.env == 'production'
   # some results
-  match_repository = MatchRepository.new
+  team_repository       = TeamRepository.new
+  match_repository      = MatchRepository.new
+  user_repository       = UserRepository.new
+  prediction_repository = PredictionRepository.new
+
+  user = user_repository.first
 
   some_group_stage_results = [
     ['RUS', 'KSA', 0, 0],
@@ -40,14 +45,41 @@ unless Hanami.env == 'production'
 
   some_group_stage_results.each do |group_stage_result|
     left_team_code, right_team_code, left_team_score, right_team_score = group_stage_result
+
+    left_team   = team_repository.by_fifa_country_code(left_team_code)
+    right_team  = team_repository.by_fifa_country_code(right_team_code)
     
-    the_match = match_repository.by_phase_and_country_codes('Group stage', left_team_code, right_team_code)
+    the_match = match_repository.by_phase_and_teams('Group stage', left_team, right_team)
     next if the_match.nil?
     match_repository.update(
       the_match.id,
       left_team_score: left_team_score,
       right_team_score: right_team_score
     )
+  end
+
+  some_group_stage_predictions = [
+    ['RUS', 'KSA', 0,  0],
+    ['EGY', 'URU', 0,  0],
+    ['MAR', 'IRN', 1,  0],
+    ['POR', 'ESP', 1,  0],
+    ['FRA', 'AUS', 2,  0],
+    ['ARG', 'ISL', 1,  1],
+    ['PER', 'DEN', 0,  2],
+    ['CRO', 'NGA', 0,  3],
+    ['CRC', 'SRB', 4,  1],
+    ['GER', 'MEX', 9, 10]
+  ]
+
+  some_group_stage_predictions.each do |group_stage_prediction|
+    left_team_code, right_team_code, left_team_score, right_team_score = group_stage_prediction
+
+    left_team   = team_repository.by_fifa_country_code(left_team_code)
+    right_team  = team_repository.by_fifa_country_code(right_team_code)
+
+    match = match_repository.by_phase_and_teams('Group stage', left_team, right_team)
+
+    the_prediction = prediction_repository.by_match_of_user(user, match)
   end
 end
 
